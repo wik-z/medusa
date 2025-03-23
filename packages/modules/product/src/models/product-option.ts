@@ -6,6 +6,8 @@ const ProductOption = model
   .define("ProductOption", {
     id: model.id({ prefix: "opt" }).primaryKey(),
     title: model.text().searchable(),
+    rank: model.number().default(0),
+    widget: model.text().nullable(),
     metadata: model.json().nullable(),
     product: model.belongsTo(() => Product, {
       mappedBy: "options",
